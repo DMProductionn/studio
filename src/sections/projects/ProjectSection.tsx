@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const ProjectSection: React.FC = () => {
   return (
-    <section className="mb-[130px] max-h-[635px]">
+    <section className="max-h-[635px]">
       {/* Фоновые эффекты */}
       <Image
         className="absolute left-0"
