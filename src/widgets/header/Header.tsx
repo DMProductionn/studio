@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
             </a>
           </li>
           <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">
-            <a data-hover="О студи" href="">
+            <a data-hover="О студии" href="">
               О студии
             </a>
           </li>

@@ -11,7 +11,7 @@
 }
 .snip1226 a {
   padding: 0.3em 0;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   position: relative;
   display: inline-block;
   letter-spacing: 1px;
@@ -44,7 +44,4 @@
 .snip1226 .current a {
   transform: translateY(100%);
 }
-/* Demo purposes only */
-body {
-  background-color: #212121;
-}
+
