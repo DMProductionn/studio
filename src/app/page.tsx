@@ -31,7 +31,7 @@ export default function Home() {
         <ProjectSection />
       </div>
 
-        <div className="sticky top-[200px] h-[600px] w-full pointer-events-none z-[-1]">
+        <div className="sticky top-[0px] h-[600px] w-full pointer-events-none z-[-1]">
           <Image src="/logo_big.webp" alt="logo" fill />
         </div>
 
