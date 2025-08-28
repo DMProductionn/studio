@@ -20,7 +20,7 @@ export const ProjectSection: React.FC = () => {
       />
 
       {/* Заголовок и кнопка */}
-      <div className="flex flex-col gap-[30px] relative z-[10] px-6">
+      <div className="flex flex-col gap-[30px] relative z-[10]">
         <h2 className="text-[70px] font-[600] leading-[100%] text-[#F4F4F4]">Наши проекты</h2>
         <button className="bg-[#FF4718] border-[2px] border-[#fff]/30 rounded-[15px] max-w-[220px] w-full h-[50px] rounded-tl-[0px]">
           Смотреть все проекты
