@@ -19,7 +19,7 @@ export const MainSection: React.FC = () => {
             Собственное <br /> приложение
           </p>
 
-          <div className="absolute bottom-[13px] z-[99] w-[50%] h-[clamp(30px,4vw,40px)] text-[clamp(12px,2vw,14px)] leading-[20px] font-[700] backdrop-blur-[4px] bg-[#fff]/15 rounded-[14px] flex justify-center items-center">
+          <div className="absolute max-w-[200px] w-full bottom-[13px] z-[99] w-[50%] h-[clamp(30px,4vw,40px)] text-[clamp(12px,2vw,14px)] leading-[20px] font-[700] backdrop-blur-[4px] bg-[#fff]/15 rounded-[14px] flex justify-center items-center">
             1 000+ пользователей
           </div>
         </div>
