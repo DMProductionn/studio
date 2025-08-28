@@ -6,7 +6,6 @@ import { TitleSection2 } from '@/sections/Title/TitleSection2';
 import Image from 'next/image';
 
 export default function Home() {
-
   return (
     <>
       {/* Фоновые эффекты */}
@@ -31,12 +30,12 @@ export default function Home() {
         <ProjectSection />
       </div>
 
-        <div className="sticky top-[0px] h-[800px] w-full pointer-events-none z-[-1]">
-          <Image src="/logo_big.webp" alt="logo" fill />
-        </div>
+      <div className="sticky top-[0px] h-[800px] 2xl:h-[600px] w-full pointer-events-none z-[-1]">
+        <Image src="/logo_big.webp" alt="logo" fill />
+      </div>
 
-        <TeamSection />
-        <InfoSection />
+      <TeamSection />
+      <InfoSection />
     </>
   );
 }
