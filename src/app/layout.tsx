@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SatisfyingCursor />
+        {/* <SatisfyingCursor /> */}
         <div className="max-w-[1220px] w-full mx-auto px-[20px]">
           <Header />
         </div>

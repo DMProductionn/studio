@@ -5,12 +5,14 @@ import { TeamSection } from '@/sections/team/TeamSection';
 import { TitleSection2 } from '@/sections/Title/TitleSection2';
 import Image from 'next/image';
 
+
 export default function Home() {
+  
   return (
     <>
       {/* Фоновые эффекты */}
       <Image
-        className="absolute left-0 top-0 z-[-1]"
+        className="absolute left-0 top-0 z-[-1] max-lg:hidden"
         src="/effect/BlurShapes3.webp"
         width={670}
         height={908}
@@ -27,7 +29,7 @@ export default function Home() {
       <div className="max-w-[1220px] w-full mx-auto px-[20px]">
         <TitleSection2 />
         <MainSection />
-        <ProjectSection />
+        <ProjectSection /> 
       </div>
 
       <div className="sticky top-[0px] h-[800px] 2xl:h-[600px] w-full pointer-events-none z-[-1]">
@@ -35,7 +37,7 @@ export default function Home() {
       </div>
 
       <TeamSection />
-      <InfoSection />
+      <InfoSection /> 
     </>
   );
 }

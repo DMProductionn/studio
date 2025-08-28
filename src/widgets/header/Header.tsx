@@ -1,8 +1,10 @@
+import './style.css';
+
 export const Header: React.FC = () => {
   return (
     <header className="w-full px-[30px] mt-[16px] rounded-[30px] h-[75px] flex justify-between items-center border border-[#fff]/15 backdrop-blur-[2px] bg-[#fff]/5">
       <svg
-      className="flex-shrink-0"
+        className="flex-shrink-0"
         xmlns="http://www.w3.org/2000/svg"
         width="154"
         height="21"
@@ -16,12 +18,29 @@ export const Header: React.FC = () => {
         />
       </svg>
 
-      <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <ul className="flex gap-[20px]">
-          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">Проекты</li>
-          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">Продукты</li>
-          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">Услуги</li>
-          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">О студии</li>
+{/* // 'current' класс у li это активный  */}
+      <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-lg:hidden">
+        <ul className="flex gap-[20px] snip1226">
+          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">
+            <a data-hover="Проекты" href="">
+              Проекты
+            </a>
+          </li>
+          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">
+            <a data-hover="Продукты" href="">
+              Продукты
+            </a>
+          </li>
+          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">
+            <a data-hover="Услуги" href="">
+              Услуги
+            </a>
+          </li>
+          <li className="text-[14px] text-[#F0F1F3] font-[400] leading-[20px]">
+            <a data-hover="О студи" href="">
+              О студии
+            </a>
+          </li>
         </ul>
       </nav>
 
