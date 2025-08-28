@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import styles from './ButtonEffect.module.css';
 
 export const ProjectSection: React.FC = () => {
-  const updatePosition = (e: any) => {
+  const updatePosition = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
     const rect = target.getBoundingClientRect();
 

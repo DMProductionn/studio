@@ -1,6 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import styles from './ButtonEffect.module.css';
 
 type FormValues = {
   name: string;
@@ -10,6 +11,14 @@ type FormValues = {
 };
 
 export const Form: React.FC = () => {
+  const updatePosition = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+
+    target.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    target.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  };
+
   const {
     register,
     handleSubmit,
@@ -90,8 +99,10 @@ export const Form: React.FC = () => {
       </div>
 
       <button
-        type="submit"
-        className="mt-[10px] w-full bg-[#F4F4F4] font-[500] rounded-[15px] h-[50px] text-center leading-[20px] text-[14px] text-[#1D1E1C]">
+        className={styles.button}
+        onMouseMove={updatePosition}
+        onMouseOut={updatePosition}
+        type="submit">
         Отправить
       </button>
 
