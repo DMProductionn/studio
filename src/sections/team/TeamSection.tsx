@@ -2,8 +2,18 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import styles from './ButtonEffect.module.css';
 
 export const TeamSection: React.FC = () => {
+
+  const updatePosition = (e: any) => {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+
+    target.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    target.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  };
+
   return (
     <section className="bg-[#18181C] z-[99] pt-[90px]">
       <div className="max-w-[1220px] w-full mx-auto px-[20px]">
@@ -29,7 +39,7 @@ export const TeamSection: React.FC = () => {
             </motion.span>
           </motion.h3>
 
-          <button className="bg-[#FF4718] z-[99] relative border-[2px] mt-[10px] border-[#fff]/30 rounded-[15px] max-w-[220px] w-full h-[50px] rounded-tl-[0px]">
+          <button className={styles.button} onMouseMove={updatePosition} onMouseOut={updatePosition}>
             Связаться с командой
             <svg
               className="absolute right-0"

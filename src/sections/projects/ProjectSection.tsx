@@ -2,8 +2,17 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import styles from './ButtonEffect.module.css';
 
 export const ProjectSection: React.FC = () => {
+  const updatePosition = (e: any) => {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+
+    target.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    target.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  };
+
   return (
     <section className="max-h-[635px]">
       {/* Фоновые эффекты */}
@@ -32,7 +41,7 @@ export const ProjectSection: React.FC = () => {
           className="text-[70px] font-[600] leading-[100%] text-[#F4F4F4]">
           Наши проекты
         </motion.h2>
-        <button className="bg-[#FF4718] border-[2px] border-[#fff]/30 rounded-[15px] max-w-[220px] w-full h-[50px] rounded-tl-[0px]">
+        <button className={styles.button} onMouseMove={updatePosition} onMouseOut={updatePosition}>
           Смотреть все проекты
         </button>
       </div>
