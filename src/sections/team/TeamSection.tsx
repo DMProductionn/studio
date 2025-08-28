@@ -51,14 +51,14 @@ export const TeamSection: React.FC = () => {
           />
 
           {/* Карточки */}
-          <div className="max-w-[360px] relative z-[2] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+          <div className="max-w-[360px] relative z-[2] pr-[20px] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
             <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">Design</p>
             <p className="text-[14px] text-[#F0F1F3] opacity-60">
               Senior Ui/UX, Figma, Adobe Photoshop, Adobe Illustrator, Adobe After Effects
             </p>
           </div>
 
-          <div className="max-w-[360px] relative z-[2] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+          <div className="max-w-[360px] relative pr-[20px] z-[2] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
             <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">FrontEnd</p>
             <p className="text-[14px] text-[#F0F1F3] opacity-60">
               React, React Native, Next.js, TypeScript, RTK, TanStack Query, Redux Toolkit, Zustand,
@@ -66,7 +66,7 @@ export const TeamSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="max-w-[360px] relative z-[2] overflow-hidden pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+          <div className="max-w-[360px] relative z-[2] pr-[20px] overflow-hidden pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
             <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">BackEnd</p>
             <p className="text-[14px] text-[#F0F1F3] opacity-60">
               FastApi, sqlalchemy, alembic, Taskiq, httpx, pytest, redis, nginx, rabbitmq, kafka,

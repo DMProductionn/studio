@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
 
           <div className='flex flex-col'>
             <Form />
-            <div className="flex gap-[30px] items-center mt-[43px]">
+            <div className="flex gap-[30px] items-center mt-[43px] opacity-60">
               <p className="text-[14px] leading-[20px]">
                 Copyright © {new Date().getFullYear()} GOLU3STUDIO. Все права защищены.
               </p>
