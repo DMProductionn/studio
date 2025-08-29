@@ -1,0 +1,53 @@
+
+:root {
+  --animate-duration: 400ms;
+  --animate-easing: cubic-bezier(.23,.44,.29,.9);
+  --bg-color: #131212;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  --x: 0;
+  --y: 0;
+  --d: 50;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 400ms cubic-bezier(.23,.44,.29,.9);
+  will-change: transform;
+}
+
+.card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+
+.image_main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 400ms cubic-bezier(.23,.44,.29,.9);
+}
+
+.card:hover .card-image-wrapper {
+  --d: 20;
+  transform: scale(1.1) translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+}
+
+.card:hover .image_main {
+  transform: translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+}

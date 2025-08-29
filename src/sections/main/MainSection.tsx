@@ -1,17 +1,67 @@
+'use client';
+
 import Image from 'next/image';
+import './style.css';
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 
 export const MainSection: React.FC = () => {
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  const card3Ref = useRef<HTMLDivElement>(null);
+  const card4Ref = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const cards: (HTMLDivElement | null)[] = [card1Ref.current, card2Ref.current, card3Ref.current, card4Ref.current];
+
+    const handleMouseMove = (e: MouseEvent, card: HTMLElement) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--x', `${e.clientX - (rect.left + rect.width / 2)}`);
+      card.style.setProperty('--y', `${e.clientY - (rect.top + rect.height / 2)}`);
+    };
+
+    const handleMouseLeave = (card: HTMLElement) => {
+      card.style.setProperty('--x', '0');
+      card.style.setProperty('--y', '0');
+    };
+
+    cards.forEach((card) => {
+      if (!card) return;
+
+      const mouseMove = (e: MouseEvent) => handleMouseMove(e, card);
+      const mouseLeave = () => handleMouseLeave(card);
+
+      card.addEventListener('mousemove', mouseMove);
+      card.addEventListener('mouseleave', mouseLeave);
+
+      // @ts-ignore 
+      (card as any)._mouseMove = mouseMove;
+      // @ts-ignore
+      (card as any)._mouseLeave = mouseLeave;
+    });
+
+    return () => {
+      cards.forEach((card) => {
+        if (!card) return;
+        // @ts-ignore
+        card.removeEventListener('mousemove', (card as any)._mouseMove);
+        // @ts-ignore
+        card.removeEventListener('mouseleave', (card as any)._mouseLeave);
+      });
+    };
+  }, []);
+
   return (
     <section className="relative z-10 mb-[150px]">
       <div className="flex max-xl:flex-wrap justify-center gap-[10px] relative">
-        <div className="relative w-[594px] h-[574px] max-w-[90vw] max-h-[90vw] rounded-[30px] border border-[#fff]/10 overflow-hidden bg-[#101010] pl-[23px] pt-[20px] max-sm:pl-[13px] max-sm:pt-[13px]">
-          <div className="absolute inset-0 w-full h-full">
+        <div ref={card1Ref} className="card relative w-[594px] h-[574px] max-w-[90vw] max-h-[90vw] rounded-[30px] border border-[#fff]/10 overflow-hidden bg-[#101010] pl-[23px] pt-[20px] max-sm:pl-[13px] max-sm:pt-[13px]">
+          <div className="card-image-wrapper absolute inset-0 w-full h-full">
             <Image
               src="/img/view1.webp"
               fill
               alt="Собственное приложение"
-              className="object-cover pointer-events-none"
+              className="object-cover pointer-events-none image_main"
             />
           </div>
 
@@ -19,13 +69,13 @@ export const MainSection: React.FC = () => {
             Собственное <br /> приложение
           </p>
 
-          <div className="absolute max-w-[200px] w-full bottom-[13px] z-[99] w-[50%] h-[clamp(30px,4vw,40px)] text-[clamp(12px,2vw,14px)] leading-[20px] font-[700] backdrop-blur-[4px] bg-[#fff]/15 rounded-[14px] flex justify-center items-center">
+          <div className="absolute max-w-[200px] w-full bottom-[13px] z-[99] h-[clamp(30px,4vw,40px)] text-[clamp(12px,2vw,14px)] leading-[20px] font-[700] backdrop-blur-[4px] bg-[#fff]/15 rounded-[14px] flex justify-center items-center">
             1 000+ пользователей
           </div>
         </div>
         <div className="flex gap-[10px]">
           <div className="flex flex-col gap-[10px]">
-            <div className="relative w-[282px] h-[282px] max-w-[45vw] max-h-[45vw] pl-[23px] pt-[20px] max-sm:pt-[13px] max-sm:pl-[13px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
+            <div ref={card2Ref} className="card relative w-[282px] h-[282px] max-w-[45vw] max-h-[45vw] pl-[23px] pt-[20px] max-sm:pt-[13px] max-sm:pl-[13px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
               <div className="absolute z-[99] font-[600] text-[#F4F4F4]">
                 <p className="text-[62px] leading-[100%] max-sm:text-[35px]">
                   50+
@@ -35,15 +85,21 @@ export const MainSection: React.FC = () => {
                   проектов
                 </span>
               </div>
-              <Image src="/img/view2.webp" fill alt="img" />
+
+              <div className="card-image-wrapper absolute inset-0 w-full h-full">
+                <Image className="image_main" src="/img/view2.webp" fill alt="img" />
+              </div>
+
               <p className="absolute bottom-[20px] text-[14px] max-sm:text-[12px] max-sm:leading-[18px] leading-[20px] text-[#F0F1F3] opacity-70">
-                Нам доверяют крупные <br />
-                организации
+                Нам доверяют крупные <br /> организации
               </p>
             </div>
-            <div className="relative flex justify-center items-center w-[282px] px-[8px] h-[282px] max-w-[45vw] max-h-[45vw] pt-[20px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
-              <Image src="/img/view3.webp" fill alt="img" />
-              <div className="relative max-w-[235px] w-full h-[71px]">
+            <div ref={card3Ref} className="card relative flex justify-center items-center w-[282px] px-[8px] h-[282px] max-w-[45vw] max-h-[45vw] pt-[20px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
+              <div className="card-image-wrapper absolute inset-0 w-full h-full">
+                <Image src="/img/view3.webp" fill alt="img" className="image_main" />
+              </div>
+
+              <div ref={card4Ref} className="relative max-w-[235px] w-full h-[71px] z-[99]">
                 <Image
                   className="absolute z-[99]"
                   src="/img/view3-3.webp"
@@ -55,8 +111,10 @@ export const MainSection: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col gap-[10px]">
-            <div className="relative w-[282px] h-[282px] max-w-[45vw] max-h-[45vw] pl-[23px] pt-[20px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
-              <Image src="/img/view4.webp" fill alt="img" />
+            <div className="card relative w-[282px] h-[282px] max-w-[45vw] max-h-[45vw] pl-[23px] pt-[20px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
+              <div className="card-image-wrapper absolute inset-0 w-full h-full">
+                <Image src="/img/view4.webp" fill alt="img" className="image_main" />
+              </div>
             </div>
             <div className="relative w-[282px] h-[282px] max-w-[45vw] max-h-[45vw] pl-[23px] pr-[23px] pt-[20px] pb-[10px] bg-[#2F3035] rounded-[30px] border border-[#fff]/10 overflow-hidden">
               <p className="font-[600] leading-[36px] mb-[15px] text-[30px] text-[#F4F4F4] max-sm:text-[18px] max-sm:leading-[120%]">
@@ -80,14 +138,14 @@ export const MainSection: React.FC = () => {
         </button>
       </div>
 
-      <div className="mt-[120px] max-sm:mt-[75px]">
+      <motion.div className='mt-[120px]' initial={{ opacity: 0 }} viewport={{ once: true }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <p className="leading-[20px] text-[14px] text-[#F0F1F3] opacity-60 max-sm:text-[12px] max-sm:leading-[18px]">
           Все, что вам нужно для продуктивной командной работы:
         </p>
         <p className="text-[#F4F4F4] text-[20px] leading-[24px] mt-[8px] max-sm:text-[16px] max-sm:leading-[24px]">
           Workspace · Diprofiles · Telegram · Inbox
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+
 export const TitleSection2: React.FC = () => {
   return (
     <section className="mb-[80px] max-sm:mb-[25px]">
+
       <Image
         className="pointer-events-none absolute left-0 -z-10"
         src="/effect/BlurShapes2.webp"
