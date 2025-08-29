@@ -16,10 +16,10 @@ export const TypedExperience: React.FC = () => {
   }, [isInView]);
 
   return (
-    <div className='h-[110px] mb-[20px]'>
+    <div className='h-[110px] mb-[100px]'>
       <motion.h3
         ref={ref}
-        className="font-[600] text-[#F4F4F4] text-[50px] leading-[100%] z-[99] max-sm:text-[40px] text-start"
+        className="font-[600] text-[#F4F4F4] text-[50px] leading-[120%] z-[99] max-sm:text-[40px] text-start"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
