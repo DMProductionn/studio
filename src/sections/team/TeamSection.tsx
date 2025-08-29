@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import styles from './ButtonEffect.module.css';
+import { TypedTextTeam } from '@/assets/TypedTextTeam';
 
 export const TeamSection: React.FC = () => {
 
@@ -18,26 +18,7 @@ export const TeamSection: React.FC = () => {
     <section className="bg-[#18181C] z-[99] pt-[90px]">
       <div className="max-w-[1220px] w-full mx-auto px-[20px]">
         <div className="flex justify-between ">
-          <motion.h3 className="font-[600] text-[#F4F4F4] text-[70px] leading-[100%] z-[99] max-sm:text-[40px] text-start">
-          
-            <motion.span
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="block">
-              Команда
-            </motion.span>
-
-            <motion.span
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
-              className="text-[#9898A6] opacity-60 block">
-              разработчиков
-            </motion.span>
-          </motion.h3>
+          <TypedTextTeam />
 
           <button className={styles.button} onMouseMove={updatePosition} onMouseOut={updatePosition}>
             Связаться с командой
