@@ -35,18 +35,18 @@ export const MainSection: React.FC = () => {
       card.addEventListener('mousemove', mouseMove);
       card.addEventListener('mouseleave', mouseLeave);
 
-      // @ts-ignore 
+      
       (card as any)._mouseMove = mouseMove;
-      // @ts-ignore
+    
       (card as any)._mouseLeave = mouseLeave;
     });
 
     return () => {
       cards.forEach((card) => {
         if (!card) return;
-        // @ts-ignore
+       
         card.removeEventListener('mousemove', (card as any)._mouseMove);
-        // @ts-ignore
+        
         card.removeEventListener('mouseleave', (card as any)._mouseLeave);
       });
     };
