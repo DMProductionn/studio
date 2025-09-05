@@ -4,20 +4,41 @@ import { Form } from './Form';
 export const Footer: React.FC = () => {
   return (
     <footer className="relative overflow-hidden">
-      <Image className='absolute -right-[20px] -top-[340px] z-[-1]' width={672} height={908} src="/effect/BlurShapes10.png" alt="effect" />
-      <Image className='absolute left-0 -top-[300px] z-[-1]' width={672} height={908} src="/effect/BlurShapes11.png" alt="effect" />
-      <div className="max-w-[1220px] w-full mx-auto px-[20px] pt-[140px] pb-[60px]">
-        <div className="flex justify-between gap-[50px]">
-          <div>
-            <div className="shadow-[0_20px_30px_rgba(0,0,0,0.5)] mb-[20px] bg-[#313237] border border-[#fff]/10 w-[266px] h-[76px] rounded-[30px] flex justify-center items-center">
-              <p className="text-[#F4F4F4] text-[30px] leading-[120%]">golu3@studio.ru</p>
+      <Image
+        className="absolute -right-[20px] hidden max-sm:block -top-[200px] z-[-1]"
+        width={672}
+        height={908}
+        src="/effect/Mobile.webp"
+        alt="effect"
+      />
+      <Image
+        className="absolute -right-[20px] max-sm:hidden -top-[340px] z-[-1]"
+        width={672}
+        height={908}
+        src="/effect/BlurShapes10.png"
+        alt="effect"
+      />
+      <Image
+        className="absolute left-0 -top-[300px] z-[-1] max-sm:right-0 max-sm:hidden"
+        width={672}
+        height={908}
+        src="/effect/BlurShapes11.png"
+        alt="effect"
+      />
+      <div className="max-w-[1220px] w-full mx-auto px-[20px] pt-[140px] max-sm:pt-[60px] pb-[60px]">
+        <div className="flex justify-between gap-[50px] max-xl:flex-col max-xl:items-center">
+          <div className="max-xl:max-w-[640px] max-xl:w-full max-md:max-w-full">
+            <div className="shadow-[0_20px_30px_rgba(0,0,0,0.5)] mb-[20px] bg-[#313237] border border-[#fff]/10 w-[266px] h-[76px] max-sm:w-[210px] max-sm:h-[65px] rounded-[30px] flex justify-center items-center">
+              <p className="text-[#F4F4F4] text-[30px] leading-[120%] max-sm:text-[20px]">
+                golu3@studio.ru
+              </p>
             </div>
 
-            <p className="font-[600] text-[50px] leading-[120%] text-[#F4F4F4]">
+            <p className="font-[600] text-[50px] leading-[120%] text-[#F4F4F4] max-sm:text-[30px] max-sm:leading-[36px]">
               Давайте работать <br /> <span className="opacity-60">вместе.</span>
             </p>
 
-            <div className="flex gap-[30px] items-center mt-[78px]">
+            <div className="flex gap-[30px] items-center mt-[78px] max-sm:mt-[20px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="160"
@@ -106,14 +127,16 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className='flex flex-col'>
+          <div className="flex flex-col max-md:w-full">
             <Form />
-            <div className="flex gap-[30px] items-center mt-[43px] opacity-60">
-              <p className="text-[14px] leading-[20px]">
+            <div className="flex gap-[30px] items-center mt-[43px] opacity-60 max-sm:flex-col max-sm:gap-[10px]">
+              <p className="text-[14px] leading-[20px] max-sm:order-2 max-sm:text-center max-sm:text-[12px]">
                 Copyright © {new Date().getFullYear()} GOLU3STUDIO. Все права защищены.
               </p>
-              <p className="text-[14px] leading-[20px]">Terms of Service</p>
-              <p className="text-[14px] leading-[20px]">Privacy Policy</p>
+              <div className='flex gap-[30px]'>
+                <p className="text-[14px] leading-[20px] max-sm:text-[12px]">Terms of Service</p>
+                <p className="text-[14px] leading-[20px] max-sm:text-[12px]">Privacy Policy</p>
+              </div>
             </div>
           </div>
         </div>

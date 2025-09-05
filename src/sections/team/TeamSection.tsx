@@ -5,7 +5,6 @@ import styles from './ButtonEffect.module.css';
 import { TypedTextTeam } from '@/assets/TypedTextTeam';
 
 export const TeamSection: React.FC = () => {
-
   const updatePosition = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
     const rect = target.getBoundingClientRect();
@@ -15,12 +14,15 @@ export const TeamSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#18181C] z-[99] pt-[90px]">
+    <section className="bg-[#18181C] z-[99] pt-[90px] max-sm:pt-[60px]">
       <div className="max-w-[1220px] w-full mx-auto px-[20px]">
-        <div className="flex justify-between ">
+        <div className="flex justify-between max-sm:flex-col max-sm:gap-[15px] max-sm:items-start">
           <TypedTextTeam />
 
-          <button className={styles.button} onMouseMove={updatePosition} onMouseOut={updatePosition}>
+          <button
+            className={`${styles.button} max-sm:self-end`}
+            onMouseMove={updatePosition}
+            onMouseOut={updatePosition}>
             Связаться с командой
             <svg
               className="absolute right-0"
@@ -37,52 +39,58 @@ export const TeamSection: React.FC = () => {
           </button>
         </div>
 
-        <div className="relative flex justify-between items-center gap-[40px] mt-[60px] z-[10]">
-          {/* Фоновые картинки */}
-          <Image
-            className="absolute bottom-[80px] right-[440px] z-0"
-            src="/effect/BlurShapes8.webp"
-            width={310}
-            height={420}
-            alt="affect"
-          />
-          <Image
-            className="absolute bottom-[125px] left-[60px] z-0"
-            src="/effect/BlurShapes7.webp"
-            width={310}
-            height={420}
-            alt="affect"
-          />
-          <Image
-            className="absolute bottom-[125px] right-[30px] z-0"
-            src="/effect/BlurShapes9.webp"
-            width={310}
-            height={420}
-            alt="affect"
-          />
-
-          {/* Карточки */}
-          <div className="max-w-[360px] relative z-[2] pr-[20px] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
-            <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">Design</p>
-            <p className="text-[14px] text-[#F0F1F3] opacity-60">
-              Senior Ui/UX, Figma, Adobe Photoshop, Adobe Illustrator, Adobe After Effects
-            </p>
+        <div className="flex flex-wrap justify-center gap-[40px] mt-[60px] h-full">
+          {/* Карточка 1 */}
+          <div className="relative max-w-[360px] w-full">
+            <Image
+              className="absolute bottom-[155px] -right-10 z-0 max-sm:hidden"
+              src="/effect/BlurShapes7.webp"
+              width={310}
+              height={420}
+              alt="affect"
+            />
+            <div className="relative z-10 pr-[20px] pl-[30px] pt-[20px] h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+              <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">Design</p>
+              <p className="text-[14px] text-[#F0F1F3] opacity-60">
+                Senior Ui/UX, Figma, Adobe Photoshop, Adobe Illustrator, Adobe After Effects
+              </p>
+            </div>
           </div>
 
-          <div className="max-w-[360px] relative pr-[20px] z-[2] pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
-            <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">FrontEnd</p>
-            <p className="text-[14px] text-[#F0F1F3] opacity-60">
-              React, React Native, Next.js, TypeScript, RTK, TanStack Query, Redux Toolkit, Zustand,
-              TailwindCSS, SCSS, Framer Motion.
-            </p>
+          {/* Карточка 2 */}
+          <div className="relative max-w-[360px] w-full">
+            <Image
+              className="absolute bottom-[90px] left-0 z-0"
+              src="/effect/BlurShapes8.webp"
+              width={310}
+              height={420}
+              alt="affect"
+            />
+            <div className="relative z-10 pr-[20px] pl-[30px] pt-[20px] h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+              <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">FrontEnd</p>
+              <p className="text-[14px] text-[#F0F1F3] opacity-60">
+                React, React Native, Next.js, TypeScript, RTK, TanStack Query, Redux Toolkit,
+                Zustand, TailwindCSS, SCSS, Framer Motion.
+              </p>
+            </div>
           </div>
 
-          <div className="max-w-[360px] relative z-[2] pr-[20px] overflow-hidden pl-[30px] pt-[20px] w-full h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
-            <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">BackEnd</p>
-            <p className="text-[14px] text-[#F0F1F3] opacity-60">
-              FastApi, sqlalchemy, alembic, Taskiq, httpx, pytest, redis, nginx, rabbitmq, kafka,
-              prometheus, grafana, grafana-loki, victoria-metrics, s3, docker, docker-compose.
-            </p>
+          {/* Карточка 3 */}
+          <div className="relative max-w-[360px] w-full">
+            <Image
+              className="absolute bottom-[150px] -right-0 z-0"
+              src="/effect/BlurShapes9.webp"
+              width={310}
+              height={420}
+              alt="affect"
+            />
+            <div className="relative z-10 pr-[20px] pl-[30px] pt-[20px] h-[155px] border border-[#fff]/10 bg-[#313237] rounded-[30px] shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+              <p className="mb-[10px] text-[20px] text-[#F4F4F4] leading-[24px]">BackEnd</p>
+              <p className="text-[14px] text-[#F0F1F3] opacity-60">
+                FastApi, sqlalchemy, alembic, Taskiq, httpx, pytest, redis, nginx, rabbitmq, kafka,
+                prometheus, grafana, grafana-loki, victoria-metrics, s3, docker, docker-compose.
+              </p>
+            </div>
           </div>
         </div>
       </div>

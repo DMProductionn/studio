@@ -16,10 +16,10 @@ export const TypedExperience: React.FC = () => {
   }, [isInView]);
 
   return (
-    <div className='h-[110px] mb-[100px]'>
+    <div className='h-[110px] mb-[100px] max-sm:mb-[0px]'>
       <motion.h3
         ref={ref}
-        className="font-[600] text-[#F4F4F4] text-[50px] leading-[120%] z-[99] max-sm:text-[40px] text-start"
+        className="font-[600] text-[#F4F4F4] text-[50px] leading-[120%] max-sm:leading-[30px] z-[99] max-sm:text-[20px] text-start"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -33,7 +33,7 @@ export const TypedExperience: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
         
-            <span className="block">
+            <span className="block max-sm:text-[20px]">
               <TypeAnimation
                 sequence={[
                   'Более 5 лет опыта ',
@@ -55,7 +55,7 @@ export const TypedExperience: React.FC = () => {
                   wrapper="span"
                   cursor={false}
                   repeat={0}
-                  className="text-[#9898A6] opacity-60"
+                  className="text-[#9898A6] opacity-60 max-sm:text-[20px]"
                 />
               )}
             </span>
@@ -74,7 +74,7 @@ export const TypedExperience: React.FC = () => {
                   speed={80}
                   cursor={false}
                   repeat={0}
-                  className="block text-[#9898A6] opacity-60"
+                  className="block text-[#9898A6] opacity-60 max-sm:text-[20px]"
                 />
               </motion.div>
             )}

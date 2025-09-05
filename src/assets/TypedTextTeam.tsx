@@ -3,16 +3,17 @@
 import { TypeAnimation } from 'react-type-animation';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useWindowWidth } from './useWindowWidth';
 
-const Cursor = () => (
+const Cursor: React.FC<{ width?: number; height?: number }> = ({ width = 60, height = 130 }) => (
   <span
     aria-hidden
-    className="inline-block relative -top-[30px] right-[20px]">
+    className="inline-block relative -top-[30px] right-[20px] max-sm:right-[5px] max-sm:-top-[15px]">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={60}
-      height={130}
+      width={width}
+      height={height}
       viewBox="0 0 60 130"
       fill="none">
       <circle cx={30} cy={125} r={5} fill="#25ABFF" />
@@ -59,6 +60,16 @@ export const TypedTextTeam: React.FC = () => {
   const [start, setStart] = useState(false);
   const [showSecondLine, setShowSecondLine] = useState(false);
 
+  const screenWidth = useWindowWidth();
+
+  // функция для определения размеров курсора
+  const getCursorSize = (width: number) => {
+    if (width < 640) return { w: 30, h: 66 };    
+    return { w: 60, h: 130 };                    
+  };
+
+  const { w, h } = getCursorSize(screenWidth);
+
   useEffect(() => {
     if (isInView) setStart(true);
   }, [isInView]);
@@ -66,7 +77,7 @@ export const TypedTextTeam: React.FC = () => {
   return (
     <motion.h3
       ref={ref}
-      className="font-[600] text-[#F4F4F4] text-[70px] leading-[5px] z-[99] max-sm:text-[40px] text-start"
+      className="font-[600] text-[#F4F4F4] text-[70px] max-sm:text-[30px] leading-[5px] max-sm:leading-[1px] z-[99] text-start"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -82,7 +93,7 @@ export const TypedTextTeam: React.FC = () => {
             }}
             initial={{ y: 0, opacity: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}>
-            <span className="inline-flex items-center">
+            <span className="inline-flex items-center max-sm:leading-[1px]">
               <TypeAnimation
                 sequence={['Команда', 0, () => setShowSecondLine(true)]}
                 wrapper="span"
@@ -90,7 +101,7 @@ export const TypedTextTeam: React.FC = () => {
                 repeat={0}
                 className="block"
               />
-              {!showSecondLine && <Cursor />}
+              {!showSecondLine && <Cursor width={w} height={h} />}
             </span>
           </motion.div>
 
@@ -101,7 +112,7 @@ export const TypedTextTeam: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}>
-              <span className="inline-flex items-center">
+              <span className="inline-flex items-center max-sm:leading-[1px] max-sm:-mt-[7px]">
                 <TypeAnimation
                   sequence={['разработчиков']}
                   wrapper="span"
@@ -109,7 +120,7 @@ export const TypedTextTeam: React.FC = () => {
                   repeat={0}
                   className="block text-[#9898A6] opacity-60"
                 />
-                <Cursor />
+                <Cursor width={w} height={h} />
               </span>
             </motion.div>
           )}

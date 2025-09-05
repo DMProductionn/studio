@@ -53,7 +53,7 @@ export const MainSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative z-10 mb-[150px]">
+    <section className="relative z-10 mb-[150px] max-sm:mb-[45px]">
       <div className="flex max-xl:flex-wrap justify-center gap-[10px] relative">
         <div ref={card1Ref} className="card relative w-[594px] h-[574px] max-w-[90vw] max-h-[90vw] rounded-[30px] border border-[#fff]/10 overflow-hidden bg-[#101010] pl-[23px] pt-[20px] max-sm:pl-[13px] max-sm:pt-[13px]">
           <div className="card-image-wrapper absolute inset-0 w-full h-full">
@@ -121,8 +121,8 @@ export const MainSection: React.FC = () => {
                 Мобильные <br /> приложения
               </p>
 
-              <div className="relative w-[260px] max-w-full mx-auto rounded-[20px] aspect-[260/156]">
-                <Image src="/img/view5.webp" alt="img" fill className="object-cover" />
+              <div className="relative max-w-full  rounded-[20px] w-full max-h-[179px] h-full overflow-hidden">
+                <Image src="/img/view5.webp" alt="img" fill className="object-contain" />
               </div>
             </div>
           </div>
