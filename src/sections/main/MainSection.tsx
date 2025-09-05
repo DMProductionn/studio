@@ -121,7 +121,7 @@ export const MainSection: React.FC = () => {
                 Мобильные <br /> приложения
               </p>
 
-              <div className="relative max-w-full  rounded-[20px] w-full max-h-[179px] h-full overflow-hidden">
+              <div className="relative rounded-[20px] w-full max-h-[179px] h-full overflow-hidden">
                 <Image src="/img/view5.webp" alt="img" fill className="object-contain" />
               </div>
             </div>
